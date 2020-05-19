@@ -48,7 +48,7 @@
           <li class="nav-item">
             <a href="#registration" class="nav-link">Registration</a>
           </li>
-          <li class="nav-item"><a href="#" class="nav-link">Login</a></li>
+          <li class="nav-item"><a href="Requester/Requester_login.php" class="nav-link">Login</a></li>
           <li class="nav-item">
             <a href="#Contact" class="nav-link">Contact Us</a>
           </li>
@@ -67,7 +67,7 @@
           Welcome to OSMS
         </h1>
         <p class="font-italic">Customer's Happiness is Our Aim</p>
-        <a href="#" class="btn btn-success mr-4">Login</a>
+        <a href="Requester/Requester_login.php" class="btn btn-success mr-4">Login</a>
         <a href="#registration" class="btn btn-danger mr-4">Sign Up</a>
       </div>
     </header>
@@ -260,7 +260,7 @@
           <!-- start 2nd col -->
           <div class="col-md-6 text-right">
             <small>Designed By Sid &copy; 2019</small>
-            <small class="ml-2"><a href="#">Admin Login</a></small>
+            <small class="ml-2"><a href="Admin/admin_login.php">Admin Login</a></small>
           </div>
         </div>
       </div>
