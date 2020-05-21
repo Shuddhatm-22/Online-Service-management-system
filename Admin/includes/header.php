@@ -46,21 +46,21 @@
 
               <li class="nav-item">
                 <a href="requests.php" class="nav-link <?php if(PAGE=='requests'){ echo 'active';} ?>"
-                  ><i class="fas fa-align center"></i>Requests</a
+                  ><i class="fas fa-people-carry"></i>Requests</a
                 >
               </li>
 
               
               <li class="nav-item">
                 <a href="assets.php" class="nav-link <?php if(PAGE=='assets'){ echo 'active';} ?>"
-                  ><i class="fas fa-align center"></i>Assets</a
+                  ><i class="fas fa-layer-group"></i>Assets</a
                 >
               </li>
 
 
               <li class="nav-item">
                 <a href="technician.php" class="nav-link <?php if(PAGE=='technician'){ echo 'active';} ?>"
-                  ><i class="fas fa-align center"></i>Technician</a
+                  ><i class="fas fa-wrench"></i>Technician</a
                 >
               </li>
 

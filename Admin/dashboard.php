@@ -4,6 +4,17 @@ define ('PAGE','dashboard');
 define('TITLE','Dashboard');
 include('../dbconnection.php');
 include('includes/header.php');
+session_start();
+
+if(isset($_SESSION['is_adminlogin'])){
+
+    $aEmail=$_SESSION['aEmail'];
+
+}
+else{
+
+    echo "<script>location.href='admin_login.php'</script>";
+}
 
 ?>
 
