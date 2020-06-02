@@ -29,7 +29,7 @@
       <div class="row">
         <!-- start row -->
 
-        <nav class="col-sm-2 bg-light sidebar py-5">
+        <nav class="col-sm-2 bg-light sidebar py-5 d-print-none">
           <!-- Side Bar 1st col-->
           <div class="sidebar-sticky">
             <ul class="nav flex-column">

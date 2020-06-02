@@ -1,52 +1,40 @@
 <?php
-    define('TITLE' ,"Status");
-    define('PAGE' ,"check_status");
-    include('includes/header.php');
-    include('../dbconnection.php');
+define('TITLE','Work Order');
+define ('PAGE','work');
+include('../dbconnection.php');
+include('includes/header.php');
 
-    session_start();
+session_start();
 
-if(isset($_SESSION['is_login'])){
+if(isset($_SESSION['is_adminlogin'])){
 
-    $rEmail=$_SESSION['rEmail'];
+    $aEmail=$_SESSION['aEmail'];
 
 }
 else{
 
-    echo "<script>location.href='Requester_login.php'</script>";
+    echo "<script>location.href='admin_login.php'</script>";
 }
+
+
 ?>
 
-<!-- Start 2nd col form -->
-<div class="col-sm-6 mt-5 mx-5 ">
-    <form action="" method="post" class="form-inline d-print-none">
-        <div class="form-group mr-3 ">
-            <label for="checkid">Enter Request ID: </label>
-            <input type="text" class="form-control" name="checkid" id="checkid" onkeypress="isInputNumber(event)">
-        </div>
+<!-- Start 2nd col -->
 
-        <button class="btn btn-danger" type="submit" name="submit">Search</button>
-    </form>
+<div class="col-sm-6 mt-5 mx-5 ">
+    <h3 class="text-center">Assigned Work Details</h3>
+
     <?php 
 
-    if(isset($_REQUEST['checkid'])){
+    if(isset($_REQUEST['view'])){
 
-        if($_REQUEST['checkid']==""){
+        $sql="SELECT * FROM assignwork_tb WHERE request_id={$_REQUEST['id']}";
 
-            $msg= '<div class="alert alert-warning mt-4">Fill All Fields</div>';
-        }
-        else{
+        $result=$conn->query($sql);
 
-            $sql="SELECT * FROM assignwork_tb WHERE request_id={$_REQUEST['checkid']}";
+        $row=$result->fetch_assoc(); ?>
 
-    $result=$conn->query($sql);
-
-    $row=$result->fetch_assoc();
-
-    if(($row['request_id']==$_REQUEST['checkid'])){?>
-
-    <h3 class="text-center mt-5">Assigned Work Details</h3>
-    <table class="table table-bordered">
+        <table class="table table-bordered">
         <tbody>
             <tr>
                 <td>Request ID</td>
@@ -112,46 +100,25 @@ else{
     </table>
 
     <div class="text-center">
-        <form action="" class="mb-3 d-print-none">
-            <input class="btn btn-danger" type="submit" value="print" onclick="window.print()">
-            <input class="btn btn-secondary" type="submit" value="Close">
+        <form action="" class="mb-3 d-print-none d-inline ">
+            <input class="btn btn-danger" type="submit" value="print" onclick="window.print()"></form>
+            <form action="work.php" class="mb-3 d-print-none d-inline "><input class="btn btn-secondary" type="submit" value="Close">
         </form>
     </div>
 
 
 
-    <?php }  else {
-        echo '<div class="alert alert-info mt-4">Your Request is Still Pending</div>';
-    } 
 
-            
-        }
+    <?php } ?>
 
+
+</div>
 
 
 
-    
-}?>
-
-    <?php if(isset($msg)) echo $msg;?>
-
-
-
-
-</div><!-- End 2nd col form -->
-
-<!-- Only Number for Input Fields -->
-<script>
-    function isInputNumber(evt) {
-        var ch = String.fromCharCode(evt.which);
-        if (!(/[0-9]/.test(ch))) {
-            evt.preventDefault();
-        }
-    }
-</script>
+<!-- end 2nd col -->
 
 
 <?php
-
-    include('includes/footer.php');
+include('includes/footer.php');
 ?>

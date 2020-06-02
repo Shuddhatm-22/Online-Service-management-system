@@ -16,6 +16,30 @@ else{
     echo "<script>location.href='admin_login.php'</script>";
 }
 
+$sql="SELECT max(request_id) FROM submitrequest_tb";
+$result=$conn->query($sql);
+
+$row=$result->fetch_row();
+$submitrequest= $row[0];
+
+
+$sql="SELECT max(rno) FROM assignwork_tb";
+$result=$conn->query($sql);
+
+$row=$result->fetch_row();
+$assignwork= $row[0];
+
+
+$sql="SELECT * FROM technician_tb";
+$result=$conn->query($sql);
+
+
+$technican= $result->num_rows;
+
+
+
+
+
 ?>
 
 
@@ -32,8 +56,8 @@ else{
                     <div class="card text-white bg-danger mb-3 " style="max-width: 18rem;">
                         <div class="card-header">Requests Received</div>
                         <div class="card-body">
-                            <h4 class="card-title">43</h4>
-                            <a class="btn text-white" href="#">View</a>
+                            <h4 class="card-title"><?php echo $submitrequest ?></h4>
+                            <a class="btn text-white" href="requests.php">View</a>
                         </div>
 
                     </div>
@@ -43,8 +67,8 @@ else{
                     <div class="card text-white bg-success mb-3 " style="max-width: 18rem;">
                         <div class="card-header">Assigned Work</div>
                         <div class="card-body">
-                            <h4 class="card-title">25</h4>
-                            <a class="btn text-white" href="#">View</a>
+                            <h4 class="card-title"><?php echo $assignwork ?></h4>
+                            <a class="btn text-white" href="work.php">View</a>
                         </div>
 
                     </div>
@@ -54,8 +78,8 @@ else{
                     <div class="card text-white bg-info mb-3 " style="max-width: 18rem;">
                         <div class="card-header">No.of Technician</div>
                         <div class="card-body">
-                            <h4 class="card-title">2</h4>
-                            <a class="btn text-white" href="#">View</a>
+                            <h4 class="card-title"><?php echo $technican ?></h4>
+                            <a class="btn text-white" href="technician.php">View</a>
                         </div>
 
                     </div>
